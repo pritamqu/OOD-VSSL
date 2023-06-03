@@ -1,7 +1,7 @@
 # Uncovering the Hidden Dynamics of Video Self-supervised Learning under Distribution Shifts
 
 
-### Our proposed out-of-distribution test bed
+### A comprehensive out-of-distribution test bed for VSSL
 
 | **#** | **Distribution Shift**                     | **InD**     | **OoD**        | **#Classes** | **#Samples**       |
 |-------|-------------------------------------------|-------------|----------------|--------------|--------------------|
