@@ -1,7 +1,7 @@
 # Uncovering the Hidden Dynamics of Video Self-supervised Learning under Distribution Shifts
 
 
-### A comprehensive out-of-distribution test bed for VSSL
+### A comprehensive out-of-distribution test bed for VSSL.
 
 | **#** | **Distribution Shift**                     | **InD**     | **OoD**        | **#Classes** | **#Samples**       |
 |-------|-------------------------------------------|-------------|----------------|--------------|--------------------|
@@ -22,5 +22,17 @@
 | 15.   | Open-set (K400/UCF)                        | Kinetics400 | UCF            | 400/31       | 240K/20K/3965       |
 | 16.   | Open-set (K400/HMDB)                       | Kinetics400 | HMDB           | 400/22       | 240K/20K/3288       |
 | 17.   | Open-set (U101/HMDB)                       | UCF101      | HMDB           | 101/34       | 9537/3783/4366     |
+
+
+### Video self-supervised learning methods studied in this work.
+
+| ![simclr](/docs/assets/images/simclr.png) | ![moco](/docs/assets/images/moco.png) | ![mae](/docs/assets/images/mae.png) |
+|:--:|:--:|:--:|
+| **(a) v-SimCLR** | **(b) v-MOCO** | **(c) v-MAE** |
+| ![byol](/docs/assets/images/byol.png) | ![simsiam](/docs/assets/images/simsiam.png) | ![dino](/docs/assets/images/dino.png) |
+| **(d) v-BYOL** | **(e) v-SimSiam** | **(f) v-DINO** |
+
+A simplified version of the video self-supervised methods are presented in Figure [fig:video_ssl].
+
 
 Codes will be released here soon...
