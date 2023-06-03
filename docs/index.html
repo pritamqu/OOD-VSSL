@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+    google.load("jquery", "1.3.2");
+</script>
+
+<!-- 
+    quick html converter
+    https://htmled.it/
+ -->
+<html>
+
+<head>
+    <title>OOD-VSSL</title>
+    <meta property="og:title"
+        content="Uncovering the Hidden Dynamics of Video Self-supervised Learning under Distribution Shifts" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <br>
+    <center>
+        <!-- <img width="360" alt="XKD" title="XKD" src="./assets/images/logo.png"><br> -->
+        <span style="font-size:42px">Uncovering the Hidden Dynamics of Video Self-supervised Learning under Distribution Shifts</span>
+        <br><br>
+        <span style="font-size:20px">Under review.</span>
+        <!-- <br> -->
+        <!-- <span style="font-size:20px">Website under development. You can watch our github repo for latest updates.</span> -->
+
+        <br><br>
+        <table align=center>
+            <tr>
+                <span style="font-size:20px"><a href="https://www.pritamsarkar.com">Pritam Sarkar</a></span> 
+                &nbsp; <span style="font-size:20px"><a href="">Ahmad Beirami</a></span>
+                &nbsp; <span style="font-size:20px"><a href="">Ali Etemad</a></span>
+            </tr>
+        </table>
+        
+
+        <table align=center>
+            <tr>
+                <td align=center>
+                    <center>
+                        <span style="font-size:18px"><a href="https://arxiv.org/pdf/2306.00000.pdf"> [Paper]</a></span>
+                    </center>
+                </td>
+                <td align=center>
+                    <center>
+                        <span style="font-size:18px"><a href="https://github.com/pritamqu/OOD-VSSL"> [Code]</a></span>
+                    </center>
+                </td>
+                <td align=center>
+                    <center>
+                        <span style="font-size:18px"><a href="https://pritamqu.github.io/OOD-VSSL/"> [Website]</a></span>
+                    </center>
+                </td>
+            </tr>
+        </table>
+    	  
+
+
+	<!-- <h1>Overview</h1> -->
+    <br><br>
+    <table border="0" style="border-collapse: collapse; width: 100%;">
+        <tbody>
+        <tr>
+        <td style="width: 100%; height: 100%;"><img width=100% alt="OOD-VSSL" title="OOD-VSSL" src="./assets/images/ood_vssl.png"></td>
+        </tr>
+        <tr>
+        <td style="width: 100%; height: 5px; vertical-align:top; text-align: center">Sample video frames of distribution shifts. In these examples, the left frames of each category represent an In-distribution sample and the right frames represent an out-of-distribution sample. </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+	
+    
+    <!--------------------- Abstract --------------------->
+	<table align=center>
+        <center>
+            <h1>
+                Abstract
+            </h1>
+        </center>
+        <tr>
+            <p style="text-align: justify;">
+            <!-- write abstract here -->
+            Video self-supervised learning (VSSL) has made significant progress in recent years. However, the exact behavior and dynamics of these models under different forms of distribution shift are not yet known. In this paper, we comprehensively study the behavior of six popular self-supervised methods (<strong>v-SimCLR</strong>, <strong>v-MOCO</strong>, <strong>v-BYOL</strong>, <strong>v-SimSiam</strong>, <strong>v-DINO</strong>, <strong>v-MAE</strong>) in response to various forms of natural distribution shift, i.e., (i) <strong>context shift</strong>, (ii) <strong>viewpoint shift</strong>, (iii) <strong>actor shift</strong>, (iv) <strong>source shift</strong>, (v) generalizability to unknown classes (<strong>zero-shot</strong>), and (vi) <strong>open-set</strong> recognition. To perform this extensive study, we carefully craft a test bed consisting of 17 in-distribution and out-of-distribution benchmark pairs using available public datasets and a series of evaluation protocols to stress-test the different methods under the intended shifts. Our study uncovers a series of intriguing findings and interesting behaviors of VSSL methods. For instance, we observe that while video models generally struggle with context shifts, v-MAE and supervised learning exhibit more robustness. Moreover, our study shows that v-MAE is a strong temporal learner, whereas contrastive methods, v-SimCLR and v-MOCO, exhibit strong performances against viewpoint shifts. When studying the notion of open-set recognition, we notice a trade-off between closed-set and open-set recognition performance if the pretrained VSSL encoders are used without finetuning. We hope that our work will contribute to the development of robust video representation learning frameworks for various real-world scenarios.
+
+            </p>
+        </tr>
+    </table>
+    <br>
+
+    <!-- <br> -->
+    <table border="0" style="width: 100%; border-collapse: collapse; background-color: #CCCCFF; border-radius: 10px;">
+      <tbody>
+        <tr>
+          <td>
+            <ul style="text-align: left;">
+            <!-- <li> -->
+            &#128073;
+            We present the first comprehensive and large-scale systematic investigation of real-world distribution shifts on VSSL methods. Our study encompasses 2 large-scale pretraining datasets, 7 video learning algorithms, 17 in-distribution out-of-distribution dataset pairs, as well as 3 toy datasets. Our thorough evaluation involves a total of 269 experiments, covering various evaluation protocols including linear evaluation, finetuning, unsupervised clustering, zero-shot recognition, and open-set recognition.
+            <!-- </li> -->
+            <!-- <li> -->
+            <br><br>
+            &#128073;
+            Our study uncovers a series of intriguing behaviors and relationships of various VSSL methods, shedding light on the strengths and weaknesses that often go unnoticed in in-distribution validation. Moreover, our investigation provides a comprehensive and impartial perspective on the effectiveness of supervised vs. self-supervised pretraining.
+            <!-- </li> -->
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <!--------------------- findings --------------------->
+    <table align=center>
+        <center>
+            <h1>
+                Key Insights
+            </h1>
+        </center>
+        <!-- <tr>
+            <p style="text-align: center;">
+            Please cite our paper using the given BibTeX entry.
+            </p>
+        </tr> -->
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+
+    <table border="0" style="width: 100%; height: 100px; border-collapse: collapse; background-color: #FAFAD2; border-radius: 10px; padding: 30px; text-align: center;">
+      <tbody>
+        <tr>
+          <td style="font-size: 20px; font-family: Arial, sans-serif;">
+            Q1. How do the learned spatial and temporal representations vary based on different VSSL pretraining methodologies? How robust are these representations to different distribution shifts?
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+
+
+    <table border="0" style="border-collapse: collapse; width: 100%;">
+    <tbody>
+    <tr>
+    <td style="width: 33.33%; height: 370px;"><img src="./assets/images/temporal_all_spearate.png" width="100%" height="100%" /></td>
+    <td style="width: 33.33%; height: 370px;"><img src="./assets/images/viewpoint_coil100.png" width="100%" height="100%" /></td>
+    <td style="width: 33.33%; height: 370px;"><img src="./assets/images/lowres_stl10.png" width="100%" height="100%" /></td>
+    </tr>
+    <tr>
+    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(a) Experiment on disentangled temporal representation.</td>
+    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(b) Experiment on Viewpoint invariance.</td>
+    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(c) Experiment on robustness against low resolution inputs.</td>
+    </tr>
+    </tbody>
+    </table>
+
+    <br>
+    <table border="0" style="width: 100%; border-collapse: collapse; background-color: #7DF9FF; border-radius: 10px;">
+      <tbody>
+        <tr>
+          <td>
+            <ul style="text-align: left;">
+              <li>Video models generally struggle in out-of-context generalization, while v-Supervised and v-MAE exhibit more robustness as they are strong temporal learners.</li>
+              <li>Contrastive methods (v-SimCLR, v-MOCO) exhibit robustness to viewpoint shifts.</li>
+              <li>v-MAE is robust against extremely low-resolution inputs.</li>
+              <li>v-Supervised shows extreme vulnerability in complex scenarios when multiple distribution shifts are applied concurrently.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <br> <br>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <table border="0" style="width: 100%; height: 100px; border-collapse: collapse; background-color: #FAFAD2; border-radius: 10px; padding: 30px; text-align: center;">
+      <tbody>
+        <tr>
+          <td style="font-size: 20px; font-family: Arial, sans-serif;">
+            Q2. Considering recent findings about the robustness of finetuning on the generalizability of large language models (LLMs), we pose the question: How does finetuning influence the out-of-distribution generalization and zero-shot performance of VSSL?
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+
+
+    <table border="0" style="border-collapse: collapse; width: 100%; height: 0px;">
+    <tbody>
+    <tr style="height: 18px;">
+    <td style="width: 75%; height: 18px;"><img src="./assets/images/temp_fc_vs_ft_all_simple_100.png" width="750px" height="250px" /></td>
+    <td style="width: 25%; height: 18px;"><img src="./assets/images/ucf101_perturb_fc_vs_ft_detailed.png" width="250px" height="250px" /></td>
+    </tr>
+    <tr>
+    <td style="width: 75%; height: 5px; vertical-align:top; text-align: center">(a) Comparing performance under real-world distribution shifts.</td>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(b) Comparing performance under synthetic temporal perturbations.</td>
+    </tr>
+    </tbody>
+    </table>
+
+    <br>
+    <table border="0" style="width: 100%; border-collapse: collapse; background-color: #7DF9FF; border-radius: 10px;">
+      <tbody>
+        <tr>
+          <td>
+            <ul style="text-align: left;">
+            <li>As opposed to LLMs, finetuning generally helps VSSL in both In-distribution and out-of-distribution.</li>
+            <li>The benefits of finetuning largely vary between different VSSL methods and the type of distribution shifts.</li>
+            <li>Finetuning provides more benefits against actor shifts in both animal and synthetic domains in comparison to viewpoint shifts like egocentric and surveillance camera views.</li>
+            <li>Finetuning degrades robustness to temporal perturbations as it impairs the time-invariant representations of contrastive and non-contrastive methods. It can also degrade performance under source shift depending on the quality of the training benchmark.</li></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br> <br>
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+
+    <table border="0" style="width: 100%; height: 100px; border-collapse: collapse; background-color: #FAFAD2; border-radius: 10px; padding: 30px; text-align: center;">
+      <tbody>
+        <tr>
+          <td style="font-size: 20px; font-family: Arial, sans-serif;">
+            Q3. How do VSSL methods perform on open-set problems? And what is the relationship between performance in closed-set vs. open-set recognition?
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+
+
+    <table border="0" style="border-collapse: collapse; width: 100%; height: 230px;">
+    <tbody>
+    <tr style="height: 18px;">
+    <td style="width: 25%; height: 18px;"><img src="./assets/images/k400_ucf.png" width="250px" height="270px" /></td>
+    <td style="width: 25%; height: 18px;"><img src="./assets/images/k400_hmdb.png" width="250px" height="270px" /></td>
+    <td style="width: 25%; height: 18px;"><img src="./assets/images/u101_hmdb.png" width="250px" height="270px" /></td>
+    <td style="width: 25%; height: 18px;"><img src="./assets/images/linear_tradeoff_simple.png" width="250px" height="270px" /></td>
+    </tr>
+    <tr>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(a) Kinetics400/UCF (FT.)<br> Comparing open macro-F1 scores vs. openness.</td>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(b) Kinetics400/HMDB (FT.)<br> Comparing open macro-F1 scores vs. openness.</td>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(c) UCF101/HMDB (FT.)<br> Comparing open macro-F1 scores vs. openness.</td>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(d) The relationships between closed-set and open-set (Frozen)</td>
+    </tr>
+    </tbody>
+    </table>
+
+    <br>
+    <table border="0" style="width: 100%; border-collapse: collapse; background-color: #7DF9FF; border-radius: 10px;">
+      <tbody>
+        <tr>
+          <td>
+            <ul style="text-align: left;">
+            <li>Contrastive methods demonstrate superior performance in open-set recognition when finetuned.</li>
+            <li>There is a trade-off between closed-set and open-set recognition when frozen pretrained encoders are used.</li>
+            <li>Strong frozen encoders (v-MOCO, v-SimCLR) have no open-set performance due to their over-confident predictions.</li>
+            <li>On the other hand, slightly weak VSSL frozen encoders (v-DINO, v-SimSiam) show better open-set performance, while v-MAE seems to perform poorly in both settings.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <br> <br>
+
+
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <table border="0" style="width: 100%; height: 100px; border-collapse: collapse; background-color: #FAFAD2; border-radius: 10px; padding: 30px; text-align: center;">
+      <tbody>
+        <tr>
+          <td style="font-size: 20px; font-family: Arial, sans-serif;">
+            Q4. Do different VSSL methods exhibit comparable decision-making patterns (`decision similarity') given the same training conditions? And how is this impacted by different distribution shifts?
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+
+
+    <table border="0" style="border-collapse: collapse; width: 100%; height: 18px;">
+    <tbody>
+    <tr style="height: 18px;">
+    <td style="width: 100%; height: 18px;"><img src="./assets/images/decision_corr_indepth_both_correact_incorreact_heatmap.png" width="1000px" height="370" frameborder="0"/></td>
+    </tr>
+    <tr>
+    <td style="width: 100%; height: 5px; vertical-align:top; text-align: center">The decision similarity between the video models in In-distribution (top) vs. out-of-distribution (bottom).</td>
+    </tr>
+    </tbody>
+    </table>
+
+    <br>
+    <table border="0" style="width: 100%; border-collapse: collapse; background-color: #7DF9FF; border-radius: 10px;">
+      <tbody>
+        <tr>
+          <td>
+            <ul style="text-align: left;">
+            <li>The decision similarity decreases under distribution shifts, which further varies based on the type of shift.</li>
+            <li>Context and source shifts cause the most dissimilarity between decisions.</li>
+            <li>Overall, the predictions between the supervised and self-supervised methods, as well as between v-MAE and other VSSL methods exhibit the least similarity.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!--------------------- citation --------------------->
+    <h1>
+                Read our paper
+    </h1>
+
+    <embed
+    src="./assets/sarkar2023vssl.pdf"
+    width=100% height="600px" />
+
+    <!--------------------- citation --------------------->
+    <table align=center>
+        <center>
+            <h1>
+                Citation
+            </h1>
+        </center>
+        <tr>
+            <p style="text-align: center;">
+            Please cite our paper using the given BibTeX entry.
+            </p>
+        </tr>
+    </table>
+
+  <textarea id="bibtexEntry" readonly style="width: 100%; height: 134px; background-color: #faf9f6;">
+    @article{sarkar2023vssl,
+      title = {Uncovering the Hidden Dynamics of Video Self-supervised Learning under Distribution Shifts},
+      author = {Pritam Sarkar and Ahmad Beirami and Ali Etemad},
+      year = {2023},
+      eprint={2306.00000},
+      archivePrefix = {arXiv},
+      primaryClass = {cs.CV}
+    }
+  </textarea>
+  <button onclick="copyToClipboard()">Copy BibTeX</button>
+
+  <script>
+    function copyToClipboard() {
+      const textarea = document.getElementById("bibtexEntry");
+      textarea.select();
+      textarea.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      alert("BibTeX entry copied!");
+    }
+  </script>
+
+
+
+	<br> <br> <hr>
+    <!--------------------- acknowledgement --------------------->
+    <!--     <table align=center width=950px>
+        <center>
+            <h1>
+                Disclosure of Funding
+            </h1>
+        </center>
+        <tr>
+            <p style="text-align: justify;">
+                The work of Pritam Sarkar and Ali Etemad was supported by the <strong>Bank of Montreal</strong> and <strong>Mitacs</strong>. The computation resources used in preparing this research were provided by <strong>SciNet HPC Consortium</strong> and <strong>Vector Institute</strong>. We thank <strong>Vandad Davoodnia</strong> at Queen's University for fruitful discussions at different stages of this work.
+            </p>
+        </tr>
+    </table> -->
+
+    <!--------------------- Question --------------------->    
+
+    <table align=center width=950px>
+        <center>
+            <h1>
+                Contact me:
+            </h1>
+        </center>
+        <tr>
+            <p>
+                You may directly contact me at <a href="mailto:pritam.sarkar@queensu.ca">pritam.sarkar@queensu.ca</a> or connect with me on <a href="https://www.linkedin.com/in/sarkarpritam/">LinkedIn</a>. <strong>I am also looking for internship opportunity in related areas; if you have an opening, please feel free to reach out to me.</strong>
+            </p>
+        </tr>
+    </table>
+
+</html>
+
