@@ -1,6 +1,9 @@
 # Uncovering the Hidden Dynamics of Video Self-supervised Learning under Distribution Shifts
 
 
+##### Codes will be released here soon. You may follow this repo to receive updates.
+
+
 ### A comprehensive out-of-distribution test bed for VSSL.
 
 | **#** | **Distribution Shift**                     | **InD**     | **OoD**        | **#Classes** | **#Samples**       |
@@ -35,9 +38,6 @@
 A simplified version of the video self-supervised methods are presented.
 
 
-Codes will be released here soon...
-
-
 
 
 ### Citation
@@ -56,4 +56,4 @@ If you find this repository useful, please consider giving a star :star: and cit
 
 ### Question
 You may directly contact me at <pritam.sarkar@queensu.ca> or connect with me on [LinkedIn](https://www.linkedin.com/in/sarkarpritam/).
-I am also **looking for internship** opportunity in related areas; if you have an opening, please feel free to reach out to me.
+I am **looking for internship** opportunity in related areas; if you have an opening, please feel free to reach out to me.
