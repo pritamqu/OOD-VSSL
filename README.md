@@ -6,7 +6,7 @@
 
 ### A comprehensive out-of-distribution test bed for VSSL.
 
-| **#** | **Distribution Shift**                     | **InD**     | **OoD**        | **#Classes** | **#Samples**       |
+| **#** | **Distribution Shift**                     | **In-distribution**     | **Out-of-distribution**        | **#Classes** | **#Samples**       |
 |-------|-------------------------------------------|-------------|----------------|--------------|--------------------|
 | 1.    | Context shift (10 classes)                | Kinetics400 | Mimetics10     | 10           | 5930/494/136       |
 | 2.    | Context shift (50 classes)                | Kinetics400 | Mimetics50     | 50           | 34K/2481/713        |
