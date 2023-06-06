@@ -143,7 +143,7 @@
 
 
 
-    <table border="0" style="border-collapse: collapse; width: 100%;">
+<!--     <table border="0" style="border-collapse: collapse; width: 100%;">
     <tbody>
     <tr>
     <td style="width: 25%; height: 240px;"><img src="./assets/images/ind_vs_ood_kinetics_m10.png" width="100%" height="100%" /></td>
@@ -180,7 +180,7 @@
     </tr>
     </tbody>
     </table>
-    <br><br>
+    <br><br> -->
 
 
     <table border="0" style="border-collapse: collapse; width: 100%;">
@@ -191,9 +191,9 @@
     <td style="width: 33.33%; height: 370px;"><img src="./assets/images/lowres_stl10.png" width="100%" height="100%" /></td>
     </tr>
     <tr>
-    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(i) Experiment on disentangled temporal representation.</td>
-    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(j) Experiment on Viewpoint invariance.</td>
-    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(k) Experiment on robustness against low resolution inputs.</td>
+    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(a) Experiment on disentangled temporal representation.</td>
+    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(b) Experiment on Viewpoint invariance.</td>
+    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(c) Experiment on robustness against low resolution inputs.</td>
     </tr>
     </tbody>
     </table>
@@ -204,10 +204,10 @@
         <tr>
           <td style="text-align: center; padding: 10px;"><strong> Highlights </strong>
             <ul style="text-align: left;">
-              <li>Video models generally struggle in out-of-context generalization, while v-Supervised and v-MAE exhibit more robustness as they are strong temporal learners.</li>
-              <li>Contrastive methods (v-SimCLR, v-MOCO) exhibit robustness to viewpoint shifts.</li>
+              <li>v-Supervised & v-MAE are strong temporal learners, hence, more robust under context shift compared to contrastive and non-contrastive methods.</li>
+              <li>Contrastive methods are more robust to viewpoint shifts compared to the non-contrastive methods, and v-MAE and v-Supervised performs worse under viewpoint shifts.</li>
               <li>v-MAE is robust against extremely low-resolution inputs. </li>
-              <li>v-Supervised shows extreme vulnerability in complex scenarios when multiple distribution shifts (e.g., top-down viewpoint shift and synthetic domain actor shift) are applied concurrently.</li>
+              <li>v-Supervised is extremely vulnerable in complex scenarios when multiple distribution shifts are applied concurrently.</li>
             </ul>
           </td>
         </tr>
@@ -252,8 +252,9 @@
             <ul style="text-align: left;">
             <li>Finetuning generally helps VSSL in both In-distribution and out-of-distribution.</li>
             <li>The benefits of finetuning largely vary between different VSSL methods and the type of distribution shifts.</li>
-            <li>Finetuning provides more benefits against actor shifts in both animal and synthetic domains in comparison to viewpoint shifts like egocentric and surveillance camera views.</li>
-            <li>Finetuning degrades robustness to temporal perturbations as it impairs the time-invariant representations of contrastive and non-contrastive methods. It can also degrade performance under source shift depending on the quality of the training benchmark.</li></li>
+            <li>Finetuning provides more benefits against actor shifts in comparison to viewpoint shifts.</li>
+            <li>Finetuning degrades robustness to temporal perturbations as it impairs the time-invariant representations of contrastive and non-contrastive methods.</li>
+            <li>Finetuning can also degrade performance under source shift depending on the quality of the training benchmark.</li>
             </ul>
           </td>
         </tr>
@@ -302,8 +303,7 @@
             <ul style="text-align: left;">
             <li>Contrastive methods demonstrate superior performance in open-set recognition when finetuned.</li>
             <li>There is a trade-off between closed-set and open-set recognition when frozen pretrained encoders are used.</li>
-            <li>Strong frozen encoders (v-MOCO, v-SimCLR) have no open-set performance due to their over-confident predictions.</li>
-            <li>On the other hand, slightly weak VSSL frozen encoders (v-DINO, v-SimSiam) show better open-set performance, while v-MAE seems to perform poorly in both settings.</li>
+            <li>Strong frozen encoders have poor open-set performance. Whereas, slightly weak frozen encoders show better performance. Frozen v-MAE performs poorly in both open and closed set.</li>
             </ul>
           </td>
         </tr>
@@ -347,7 +347,8 @@
             <ul style="text-align: left;">
             <li>The decision similarity decreases under distribution shifts, which further varies based on the type of shift.</li>
             <li>Context and source shifts cause the most dissimilarity between decisions.</li>
-            <li>Overall, the predictions between the supervised and self-supervised methods, as well as between v-MAE and other VSSL methods exhibit the least similarity.</li>
+            <li>The decision similarity between the v-Supervised and VSSL; & v-MAE and other VSSL methods exhibit the least.</li>
+
             </ul>
           </td>
         </tr>
@@ -357,11 +358,11 @@
 
     <!--------------------- citation --------------------->
     <h1>
-                Read our paper
+                Read our paper for more insights!
     </h1>
 
     <embed
-    src="./assets/sarkar2023vssl.pdf"
+    src="https://arxiv.org/pdf/2306.02014.pdf"
     width=100% height="600px" />
 
     <!--------------------- citation --------------------->
@@ -427,7 +428,8 @@
         </center>
         <tr>
             <p>
-                You may directly contact me at <a href="mailto:pritam.sarkar@queensu.ca">pritam.sarkar@queensu.ca</a> or connect with me on <a href="https://www.linkedin.com/in/sarkarpritam/">LinkedIn</a>. <strong>I am looking for internship opportunity in related areas; if you have an opening, please feel free to reach out to me.</strong>
+                You may directly contact me at <a href="mailto:pritam.sarkar@queensu.ca">pritam.sarkar@queensu.ca</a> or connect with me on <a href="https://www.linkedin.com/in/sarkarpritam/">LinkedIn</a>. <br>
+                &#11088 <strong>I am looking for internship opportunity in related areas; if you have an opening, please feel free to reach out.</strong> &#11088
             </p>
         </tr>
     </table>
