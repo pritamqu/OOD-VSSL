@@ -205,7 +205,7 @@
           <td style="text-align: center; padding: 10px;"><strong> Highlights </strong>
             <ul style="text-align: left;">
               <li>v-Supervised & v-MAE are strong temporal learners, hence, more robust under context shift compared to contrastive and non-contrastive methods.</li>
-              <li>Contrastive methods are more robust to viewpoint shifts compared to the non-contrastive methods, and v-MAE and v-Supervised performs worse under viewpoint shifts.</li>
+              <li>Contrastive methods are more robust to viewpoint shifts compared to the non-contrastive methods, and v-MAE and v-Supervised perform worse under viewpoint shifts.</li>
               <li>v-MAE is robust against extremely low-resolution inputs. </li>
               <li>v-Supervised is extremely vulnerable in complex scenarios when multiple distribution shifts are applied concurrently.</li>
             </ul>
@@ -253,8 +253,9 @@
             <li>Finetuning generally helps VSSL in both In-distribution and out-of-distribution.</li>
             <li>The benefits of finetuning largely vary between different VSSL methods and the type of distribution shifts.</li>
             <li>Finetuning provides more benefits against actor shifts in comparison to viewpoint shifts.</li>
-            <li>Finetuning degrades robustness to temporal perturbations as it impairs the time-invariant representations of contrastive and non-contrastive methods.</li>
+            <li>The benefits of finetuning drops in more complex setup of context shift.</li>
             <li>Finetuning can also degrade performance under source shift depending on the quality of the training benchmark.</li>
+            <li>Finetuning degrades robustness to temporal perturbations as it impairs the time-invariant representations of contrastive and non-contrastive methods.</li>
             </ul>
           </td>
         </tr>
