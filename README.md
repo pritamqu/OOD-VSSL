@@ -11,7 +11,7 @@
 | 1.    | Context shift (10 classes)                | Kinetics400 | Mimetics10     | 10           | 5930/494/136       |
 | 2.    | Context shift (50 classes)                | Kinetics400 | Mimetics50     | 50           | 34K/2481/713        |
 | 3.    | Viewpoint shift (egocentric)              | CharadesEgo | CharadesEgo    | 157          | 34K/9386/9145       |
-| 4.    | Viewpoint shift (surveillance)            | MiT-v2      | TinyVirat-v2   | 14           | 41K/1400/2644       |
+| 4.    | Viewpoint shift (surveillance+low resolution)            | MiT-v2      | TinyVirat-v2   | 14           | 41K/1400/2644       |
 | 5.    | Actor shift (animal)                       | Kinetics400 | ActorShift     | 7            | 15K/1018/165        |
 | 6.    | Viewpoint + Actor shift (top-down+synthetic)| MiTv2      | Sims4Action    | 6            | 19K/600/950         |
 | 7.    | Source shift (UCF/HMDB)                    | UCF         | HMDB           | 17           | 1877/746/510       |
@@ -44,11 +44,11 @@ A simplified version of the video self-supervised methods are presented.
 If you find this repository useful, please consider giving a star :star: and citation using the given BibTeX entry:
 
 ```
-@misc{sarkar2023vssl,
+@misc{sarkar2023ood,
       title={Uncovering the Hidden Dynamics of Video Self-supervised Learning under Distribution Shifts}, 
       author={Pritam Sarkar and Ahmad Beirami and Ali Etemad},
       year={2023},
-      eprint={2306.00000},
+      eprint={2306.02014},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }

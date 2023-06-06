@@ -42,7 +42,7 @@
             <tr>
                 <td align=center>
                     <center>
-                        <span style="font-size:18px"><a href="https://arxiv.org/pdf/2306.00000.pdf"> [Paper]</a></span>
+                        <span style="font-size:18px"><a href="https://arxiv.org/abs/2306.02014"> [Paper]</a></span>
                     </center>
                 </td>
                 <td align=center>
@@ -68,11 +68,11 @@
         <td style="width: 100%; height: 100%;"><img width=100% alt="OOD-VSSL" title="OOD-VSSL" src="./assets/images/ood_vssl.png"></td>
         </tr>
         <tr>
-        <td style="width: 100%; height: 5px; vertical-align:top; text-align: center">Sample video frames of distribution shifts. In these examples, the left frames of each category represent an In-distribution sample and the right frames represent an out-of-distribution sample. </td>
+        <td style="width: 100%; height: 5px; vertical-align:top; text-align: center; background-color: #F0F8FF; padding: 15px;">Sample video frames of distribution shifts. In these examples, the left frames of each category represent an In-distribution sample and the right frames represent an out-of-distribution sample. </td>
         </tr>
         </tbody>
     </table>
-
+<!-- <td colspan=4; style="width: 100%; height: 5px; vertical-align:top; text-align: justify; background-color: #F0F8FF; padding: 15px;"> -->
 
 	
     
@@ -97,7 +97,7 @@
     <table border="0" style="width: 100%; border-collapse: collapse; background-color: #CCCCFF; border-radius: 10px;">
       <tbody>
         <tr>
-          <td>
+          <td style="text-align: center; padding: 10px;"><strong> Contributions </strong>
             <ul style="text-align: left;">
             <!-- <li> -->
             &#128073;
@@ -142,6 +142,47 @@
     <br>
 
 
+
+    <table border="0" style="border-collapse: collapse; width: 100%;">
+    <tbody>
+    <tr>
+    <td style="width: 25%; height: 240px;"><img src="./assets/images/ind_vs_ood_kinetics_m10.png" width="100%" height="100%" /></td>
+    <td style="width: 25%; height: 240px;"><img src="./assets/images/ind_vs_ood_kinetics_m50.png" width="100%" height="100%" /></td>
+    <td style="width: 25%; height: 240px;"><img src="./assets/images/ind_vs_ood_third_ego.png" width="100%" height="100%" /></td>
+    <td style="width: 25%; height: 240px;"><img src="./assets/images/ind_vs_ood_mit_tiny.png" width="100%" height="100%" /></td>
+    </tr>
+    <tr>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(a) Context shift (10 class).</td>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(b) Context shift (50 class).</td>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(c) Viewpoint shift (egocentric).</td>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(d) Viewpoint shift (surveillance+low resolution).</td>
+    </tr>
+    <tr>
+    <td style="width: 25%; height: 240px;"><img src="./assets/images/ind_vs_ood_kinetics_s4a.png" width="100%" height="100%" /></td>
+    <td style="width: 25%; height: 240px;"><img src="./assets/images/ind_vs_ood_kinetics_as.png" width="100%" height="100%" /></td>
+    <td style="width: 25%; height: 240px;"><img src="./assets/images/ind_vs_ood_ucf_hmdb.png" width="100%" height="100%" /></td>
+    <td style="width: 25%; height: 240px;"><img src="./assets/images/ind_vs_ood_hmdb_ucf.png" width="100%" height="100%" /></td>
+    </tr>
+    <tr>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(e) Viewpoint+actor shift (top-down+synthetic).</td>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(f) Actor shift (animal).</td>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(g) Source shift (UCF/HMDB).</td>
+    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(h) Source shift (HMDB/UCF).</td>
+    </tr>
+    <tr>
+    <td colspan=4; style="width: 100%; height: 5px; vertical-align:top; text-align: justify; background-color: #F0F8FF; padding: 15px;">
+        A comparative study of the relative robustness of video models under distribution shifts, utilizing both frozen (empty markers) and finetuned (filled markers) encoders. (a and b) v-Supervised demonstrates superior performance in linear evaluation, while v-MAE achieves the best results when finetuned. On the other hand, although v-MOCO and v-SimCLR show strong performance in in-distribution validation, they exhibit weaker generalization in out-of-context scenarios.
+    (c) The results demonstrate a linear relationship between in-distribution vs. out-of-distribution performance under egocentric viewpoint shifts. 
+    (c, d, and e) v-SimCLR and v-MOCO consistently perform better across all viewpoint shifts in both linear and finetuning. 
+    (f) In animal domain actor shift, v-BYOL achieves the best results in linear evaluation, whereas, v-SimCLR outperforms others when finetuned. 
+    (g and h) v-BYOL shows superior performance under source shifts in all setups. 
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <br><br>
+
+
     <table border="0" style="border-collapse: collapse; width: 100%;">
     <tbody>
     <tr>
@@ -150,9 +191,9 @@
     <td style="width: 33.33%; height: 370px;"><img src="./assets/images/lowres_stl10.png" width="100%" height="100%" /></td>
     </tr>
     <tr>
-    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(a) Experiment on disentangled temporal representation.</td>
-    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(b) Experiment on Viewpoint invariance.</td>
-    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(c) Experiment on robustness against low resolution inputs.</td>
+    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(i) Experiment on disentangled temporal representation.</td>
+    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(j) Experiment on Viewpoint invariance.</td>
+    <td style="width: 33.33%; height: 5px; vertical-align:top; text-align: center">(k) Experiment on robustness against low resolution inputs.</td>
     </tr>
     </tbody>
     </table>
@@ -161,12 +202,12 @@
     <table border="0" style="width: 100%; border-collapse: collapse; background-color: #7DF9FF; border-radius: 10px;">
       <tbody>
         <tr>
-          <td>
+          <td style="text-align: center; padding: 10px;"><strong> Highlights </strong>
             <ul style="text-align: left;">
               <li>Video models generally struggle in out-of-context generalization, while v-Supervised and v-MAE exhibit more robustness as they are strong temporal learners.</li>
               <li>Contrastive methods (v-SimCLR, v-MOCO) exhibit robustness to viewpoint shifts.</li>
-              <li>v-MAE is robust against extremely low-resolution inputs.</li>
-              <li>v-Supervised shows extreme vulnerability in complex scenarios when multiple distribution shifts are applied concurrently.</li>
+              <li>v-MAE is robust against extremely low-resolution inputs. </li>
+              <li>v-Supervised shows extreme vulnerability in complex scenarios when multiple distribution shifts (e.g., top-down viewpoint shift and synthetic domain actor shift) are applied concurrently.</li>
             </ul>
           </td>
         </tr>
@@ -193,12 +234,12 @@
     <table border="0" style="border-collapse: collapse; width: 100%; height: 0px;">
     <tbody>
     <tr style="height: 18px;">
-    <td style="width: 75%; height: 18px;"><img src="./assets/images/temp_fc_vs_ft_all_simple_100.png" width="750px" height="250px" /></td>
-    <td style="width: 25%; height: 18px;"><img src="./assets/images/ucf101_perturb_fc_vs_ft_detailed.png" width="250px" height="250px" /></td>
+    <td style="width: 80%; height: 18px;"><img src="./assets/images/temp_fc_vs_ft_all_simple_100.png" width="775px" height="250px" /></td>
+    <td style="width: 20%; height: 18px;"><img src="./assets/images/ucf101_perturb_fc_vs_ft_detailed.png" width="225px" height="250px" /></td>
     </tr>
     <tr>
-    <td style="width: 75%; height: 5px; vertical-align:top; text-align: center">(a) Comparing performance under real-world distribution shifts.</td>
-    <td style="width: 25%; height: 5px; vertical-align:top; text-align: center">(b) Comparing performance under synthetic temporal perturbations.</td>
+    <td style="width: 80%; height: 5px; vertical-align:top; text-align: center">(a) Comparing performance under real-world distribution shifts.</td>
+    <td style="width: 20%; height: 5px; vertical-align:top; text-align: center">(b) Comparing performance under synthetic temporal perturbations.</td>
     </tr>
     </tbody>
     </table>
@@ -207,7 +248,7 @@
     <table border="0" style="width: 100%; border-collapse: collapse; background-color: #7DF9FF; border-radius: 10px;">
       <tbody>
         <tr>
-          <td>
+          <td style="text-align: center; padding: 10px;"><strong> Highlights </strong>
             <ul style="text-align: left;">
             <li>As opposed to LLMs, finetuning generally helps VSSL in both In-distribution and out-of-distribution.</li>
             <li>The benefits of finetuning largely vary between different VSSL methods and the type of distribution shifts.</li>
@@ -257,7 +298,7 @@
     <table border="0" style="width: 100%; border-collapse: collapse; background-color: #7DF9FF; border-radius: 10px;">
       <tbody>
         <tr>
-          <td>
+          <td style="text-align: center; padding: 10px;"><strong> Highlights </strong>
             <ul style="text-align: left;">
             <li>Contrastive methods demonstrate superior performance in open-set recognition when finetuned.</li>
             <li>There is a trade-off between closed-set and open-set recognition when frozen pretrained encoders are used.</li>
@@ -302,7 +343,7 @@
     <table border="0" style="width: 100%; border-collapse: collapse; background-color: #7DF9FF; border-radius: 10px;">
       <tbody>
         <tr>
-          <td>
+          <td style="text-align: center; padding: 10px;"><strong> Highlights </strong>
             <ul style="text-align: left;">
             <li>The decision similarity decreases under distribution shifts, which further varies based on the type of shift.</li>
             <li>Context and source shifts cause the most dissimilarity between decisions.</li>
@@ -338,13 +379,13 @@
     </table>
 
   <textarea id="bibtexEntry" readonly style="width: 100%; height: 134px; background-color: #faf9f6;">
-    @article{sarkar2023vssl,
-      title = {Uncovering the Hidden Dynamics of Video Self-supervised Learning under Distribution Shifts},
-      author = {Pritam Sarkar and Ahmad Beirami and Ali Etemad},
-      year = {2023},
-      eprint={2306.00000},
-      archivePrefix = {arXiv},
-      primaryClass = {cs.CV}
+    @misc{sarkar2023ood,
+      title={Uncovering the Hidden Dynamics of Video Self-supervised Learning under Distribution Shifts}, 
+      author={Pritam Sarkar and Ahmad Beirami and Ali Etemad},
+      year={2023},
+      eprint={2306.02014},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
     }
   </textarea>
   <button onclick="copyToClipboard()">Copy BibTeX</button>
