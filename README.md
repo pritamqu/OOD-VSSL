@@ -1,5 +1,19 @@
 # Uncovering the Hidden Dynamics of Video Self-supervised Learning under Distribution Shifts
 
+<h3 align="center">
+Under review.
+</h3>
+<h3 align="center">
+<a href="https://www.pritamsarkar.com">Pritam Sarkar</a>
+&nbsp;
+Ahmad Beirami
+&nbsp;
+Ali Etemad
+</h3>
+<h3 align="center"> 
+<a href="https://arxiv.org/abs/2306.02014">[Paper]</a>
+<a href="https://pritamqu.github.io/OOD-VSSL/"> [Website]</a>
+</h3>
 
 ##### Codes will be released here soon. You may follow this repo to receive updates.
 
@@ -54,6 +68,6 @@ If you find this repository useful, please consider giving a star :star: and cit
 }
 ```
 
-### Question
+### Contact me
 You may directly contact me at <pritam.sarkar@queensu.ca> or connect with me on [LinkedIn](https://www.linkedin.com/in/sarkarpritam/).
 I am **looking for internship** opportunity in related areas; if you have an opening, please feel free to reach out to me.
