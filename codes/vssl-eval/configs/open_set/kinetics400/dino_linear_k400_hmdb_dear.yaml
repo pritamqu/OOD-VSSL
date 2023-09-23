@@ -1,0 +1,120 @@
+apex: true
+apex_opt_level: O1
+average_clips: 'score' # prob, score, evidence
+dataset:
+  ood_type: new # new or old
+  ood_test:
+    fold: 1 # old
+    name: 'hmdb51'
+    subset: 'test-k400' # new
+    split: 'test-split{fold}' # old
+  test: # common aug stuff
+    aug_mode: val
+    batch_size: 32
+    clip_duration: 2
+    clips_per_video: 5
+    crop_size: 112
+    mode: video
+    name: kinetics400
+    split: val
+    fold: 1
+    vid_aug_kwargs:
+      normalize: true
+      pad_missing: true
+      totensor: true
+    vid_transform: strong3crop
+    video_fps: 8.0
+  train: # load original split-1
+    aug_mode: train
+    batch_size: 1024
+    clip_duration: 2
+    clips_per_video: 1
+    crop_size: 112
+    drop_last: true
+    mode: clip
+    name: kinetics400
+    split: train
+    fold: 1
+    use_shuffle: true
+    vid_aug_kwargs:
+      color:
+      - 0.4
+      - 0.4
+      - 0.4
+      - 0.2
+      min_area: [0.2, 0.766]
+      normalize: true
+      p_blur: 0.0
+      p_flip: 0.5
+      p_gray: 0.2
+      pad_missing: true
+      normalize: true
+      totensor: true
+    vid_transform: strong3crop
+    video_fps: 8.0
+eval_freq: 10
+evidence: 'exp'
+uncertainty: 'EDL'
+hyperparams:
+  criterion:
+      name: 'dear' # 'cross_entropy'
+      kwargs: 
+          # num_classes: 400 # over written by
+          evidence: 'exp'
+          loss_type: 'log'
+          with_kldiv: false
+          with_avuloss: false
+          annealing_method: 'exp'
+  layer_decay: 0.55
+  lr:
+    base_lr: 0.0003
+    final_lr: 1.0e-06
+    name: cosine
+    warmup_epochs: 10
+    warmup_lr: 1.0e-06
+  num_epochs: 100
+  optimizer:
+    betas:
+    - 0.9
+    - 0.999
+    momentum: 0.9
+    name: adamw
+    weight_decay: 0.05
+model:
+  fwd_kwargs:
+    feat_op: pool
+  debias_head:
+      loss_factor: 0.1
+      # num_classes: 400 
+      head_hidden_dim: 2048
+      dropout_ratio: 0.5
+      init_std: 0.01
+  classifier:
+      num_classes: 400
+      use_bn: false
+      l2_norm: false
+      use_dropout: true
+      dropout: 0.5
+  vid_backbone:
+    apply_cls_token: true
+    drop_path_rate: 0
+    drop_rate: 0
+    frame_size:
+    - 3
+    - 112
+    - 112
+    num_frames: 16
+    patch_spatial:
+    - 16
+    - 16
+    patch_temporal: 4
+    vit_config: base
+  vid_setup: linear
+  apply_debias_head: false
+name: k400-open-set
+num_workers: 32
+progress:
+  log2tb: false
+  print_freq: 10
+  wandb: true
+sync_bn: true

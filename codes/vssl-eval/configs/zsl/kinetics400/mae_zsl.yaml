@@ -1,0 +1,110 @@
+apex: true
+apex_opt_level: O1
+dataset:
+  test:
+    aug_mode: val
+    batch_size: 32
+    clip_duration: 2
+    clips_per_video: 5
+    crop_size: 112
+    drop_last: false
+    fold: 1
+    mode: video
+    name:
+    - kinetics400 # ind
+    - ucf101
+    - hmdb51
+    - rareact
+    split:
+    - val
+    - test
+    - test
+    - 1
+    use_shuffle: false
+    vid_aug_kwargs:
+      normalize: true
+      pad_missing: true
+      totensor: true
+    vid_transform: randaug3crop
+    video_fps: 8.0
+  train:
+    aug_mode: train
+    batch_size: 768
+    clip_duration: 2
+    clips_per_video: 1
+    crop_size: 112
+    drop_last: true
+    mode: clip
+    name: kinetics400
+    split: train
+    use_shuffle: true
+    vid_aug_kwargs:
+      aspect_ratio:
+      - 0.75
+      - 1.3333
+      auto_augment: rand-m7-n4-mstd0.5-inc1
+      hflip: true
+      min_area:
+      - 0.2
+      - 0.766
+      normalize: true
+      pad_missing: true
+      rand_erase:
+        max_count: 1
+        mode: pixel
+        num_splits: 1
+        probability: 0.25
+      totensor: true
+    vid_transform: randaug3crop
+    video_fps: 8.0
+eval_freq: 1
+hyperparams:
+  criterion: mse
+  layer_decay: 0.65
+  lr:
+    base_lr: 0.0005
+    final_lr: 1.0e-06
+    name: cosine
+    warmup_epochs: 10
+    warmup_lr: 1.0e-06
+  num_epochs: 50
+  optimizer:
+    betas:
+    - 0.9
+    - 0.999
+    momentum: 0.9
+    name: adamw
+    weight_decay: 0.05
+model:
+  classifier: default
+  fwd_kwargs:
+    feat_op: pool
+  text_encoder:
+    hidden_dim: 1024
+    in_dim: 300
+    nlayers: 1
+    out_dim: 768
+    use_bn: false
+  vid_backbone:
+    apply_cls_token: true
+    drop_path_rate: 0
+    drop_rate: 0
+    frame_size:
+    - 3
+    - 112
+    - 112
+    num_frames: 32
+    patch_spatial:
+    - 16
+    - 16
+    patch_temporal: 4
+    vit_config: base
+  vid_setup: finetune
+name: k400-zsl
+num_workers: 40
+progress:
+  log2tb: false
+  print_freq: 10
+  wandb: true
+sync_bn: true
+text_model: Word2Vec

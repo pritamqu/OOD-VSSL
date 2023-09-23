@@ -1,0 +1,72 @@
+dataset:
+  batch_size: 32
+  clip_duration: 2
+  crop_size: 112
+  name: "kinetics_subset" # IID train test name
+  return_audio: false
+  return_video: true
+  ood_test:
+    name: "actor_shift"
+    aug_mode: val
+    clips_per_video: 10 # max 24 sec
+    drop_last: false
+    mode: video
+    split: val
+    subset: null
+    use_shuffle: false
+    vid_aug_kwargs:
+      normalize: true
+      pad_missing: true
+      totensor: true
+  test:
+    aug_mode: val
+    clips_per_video: 5
+    drop_last: false
+    mode: video
+    split: val
+    subset: "actor_shift" 
+    use_shuffle: false
+    vid_aug_kwargs:
+      normalize: true
+      pad_missing: true
+      totensor: true
+  train:
+    aug_mode: train
+    clips_per_video: 10
+    drop_last: true
+    mode: clip
+    split: train
+    subset: "actor_shift"
+    use_shuffle: true
+    vid_aug_kwargs:
+        color: [0.4, 0.4, 0.4, 0.2]
+        min_area: [0.2, 0.766]
+        p_flip: 0.5
+        p_gray: 0.2
+        p_blur: 0.0 # don't apply gaussian-blur in fixedfeat
+        pad_missing: true
+        normalize: true
+        totensor: true
+  vid_transform: "strong3crop"
+  video_fps: 8.0
+model:
+  svm:
+      cost: [0.0001, 0.001, 0.01, 0.1, 1] # change to final value later
+      iter: 1000
+      scale_features: false
+  backbone: # configurations are based on the pretraining
+      frame_size: [3, 112, 112]
+      num_frames: 16
+      patch_spatial: [16, 16]
+      patch_temporal: 4
+      apply_cls_token: true 
+      vit_config: "base"
+  fwd_kwargs:
+      feat_op: 'pool'
+name: kinetics-actorshift-svm
+metrics: ['acc']
+num_workers: 20
+progress:
+  log2tb: false
+  print_freq: 10
+  wandb: true

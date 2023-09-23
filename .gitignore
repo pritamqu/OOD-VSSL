@@ -1,7 +1,18 @@
 __pycache__/
 .spyproject/
-src/
-checkpointing/
+# src/
+# checkpointing/
 weights/
 temp_*
-codes/
+codes/vssl-train/
+# codes/vssl-eval/*
+cache/*
+cache.zip
+*.txt
+*train.txt
+*val.txt
+*train.csv
+*val.csv
+*train.pkl
+*val.pkl
+

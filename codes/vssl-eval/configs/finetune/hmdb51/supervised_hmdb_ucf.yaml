@@ -1,0 +1,111 @@
+apex: true
+apex_opt_level: O1
+dataset:
+  batch_size: 768
+  clip_duration: 2.0
+  crop_size: 112
+  fold: 1
+  name: hmdb-ucf
+  ood_test:
+    aug_mode: val
+    clips_per_video: 5
+    drop_last: false
+    mode: video
+    name: ucf-hmdb
+    split: testlist{fold:02d}
+    use_shuffle: false
+    vid_aug_kwargs:
+      normalize: true
+      pad_missing: true
+      totensor: true
+  test:
+    aug_mode: val
+    clips_per_video: 5
+    drop_last: false
+    mode: video
+    split: test-split{fold}
+    use_shuffle: false
+    vid_aug_kwargs:
+      normalize: true
+      pad_missing: true
+      totensor: true
+  train:
+    aug_mode: train
+    clips_per_video: 1
+    drop_last: true
+    mode: clip
+    split: train-split{fold}
+    use_shuffle: true
+    vid_aug_kwargs:
+      aspect_ratio:
+      - 0.75
+      - 1.3333
+      auto_augment: rand-m7-n4-mstd0.5-inc1
+      hflip: true
+      min_area:
+      - 0.2
+      - 0.766
+      normalize: true
+      pad_missing: true
+      rand_erase:
+        max_count: 1
+        mode: pixel
+        num_splits: 1
+        probability: 0.25
+      totensor: true
+  vid_transform: randaug3crop
+  video_fps: 8.0
+eval_freq: 1
+hyperparams:
+  cutmix: 0.0
+  cutmix_minmax: null
+  label_smoothing: 0.0
+  layer_decay: 0.55
+  lr:
+    base_lr: 0.0005
+    final_lr: 1.0e-06
+    name: cosine
+    warmup_epochs: 10
+    warmup_lr: 0
+  mixup: 0.0
+  mixup_mode: batch
+  mixup_prob: 1.0
+  mixup_switch_prob: 0.5
+  num_epochs: 100
+  optimizer:
+    betas:
+    - 0.9
+    - 0.999
+    name: adamw
+  weight_decay: 0.05
+model:
+  backbone:
+    apply_cls_token: true
+    drop_path_rate: 0
+    drop_rate: 0
+    frame_size:
+    - 3
+    - 112
+    - 112
+    num_frames: 16
+    patch_spatial:
+    - 16
+    - 16
+    patch_temporal: 4
+    vit_config: base
+  classifier:
+    dropout: 0.5
+    l2_norm: false
+    num_classes: 17
+    use_bn: false
+    use_dropout: true
+  ensemble: mean
+  fwd_kwargs:
+    feat_op: pool
+name: hmdb2ucf-finetune
+num_workers: 40
+progress:
+  log2tb: false
+  print_freq: 10
+  wandb: true
+sync_bn: true
