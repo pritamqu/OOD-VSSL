@@ -22,7 +22,7 @@ The following items are available in the repo, please go inside the sub-dirs to 
 
 - [x] VSSL evaluation codes: [vssl-eval](/codes/vssl-eval/README.md)
 - [x] VSSL pretrained model: [link](https://drive.google.com/drive/folders/1Hk1mXjwiTKUxO_Cd4gnwUE5fxr5u3eMS?usp=sharing). More checkpoints will be released...
-- [ ] VSSL pretraining codes: [vssl-train](/codes/vssl-train/README.md)
+- [x] VSSL pretraining codes: [vssl-train](/codes/vssl-train/README.md)
 - [ ] VSSL finetuned model: [link](/README.md).
 
 

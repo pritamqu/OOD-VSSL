@@ -1,0 +1,74 @@
+num_workers: 64 # this will be divided by number of gpus in each node
+num_node: 2 # num_node multiplies batch size # ignored
+apex: true # actually using pytorch amp
+apex_opt_level: "O1" # "O0 for FP32 training, O1 for mixed precision training.
+sync_bn: true
+
+progress:
+    print_freq: 10
+    log2tb: false
+    wandb: false
+    wandb_all: false
+
+dataset:
+    name: "kinetics400"
+    fold: 1
+    batch_size: 384 # effective batch size = cfg['num_node'] * cfg['batch_size']
+    clip_duration: 4.0 
+    video_fps: 8.
+    crop_size: 112 
+    return_video: true
+    return_audio: false
+    vid_transform: "strong"
+    train:
+        split: "train"
+        mode: "clip"
+        clips_per_video: 1
+        aug_mode: 'train'
+        use_shuffle: true
+        drop_last: true
+        vid_aug_kwargs:
+            color: [0.0, 0.0, 0.0, 0.0] # [0.4, 0.4, 0.4, 0.2]
+            crop_scale: [0.5, 1] #
+            p_flip: 0.5               # change it to 0 to turn off
+            p_gray: 0.0  #            # change it to 0 to turn off
+            p_blur: 0.0  #            # change it to 0 to turn off
+            pad_missing: true
+            normalize: true
+            totensor: true
+
+hyperparams:
+    num_epochs: 800 # full training
+    stop_epoch: 800 # stop before the scheduled train during ablation
+    optimizer:
+        name: "adamw"
+        betas: [0.9, 0.95]
+    lr:
+        name: "cosine"
+        warmup_epochs: 30
+        warmup_lr: 0
+        base_lr: 0.0003 # for effective batch size 
+        final_lr: 0.0
+    weight_decay:
+        name: "cosine"
+        warmup_epochs: 0
+        warmup: 0
+        base: 0.05 
+        final: 0.5
+model:
+    name: "VideoMAE" 
+    type: "mae"
+    kwargs: # confirm these with the setup mentioned above
+        frame_size: [3, 112, 112]
+        num_frames: 32
+        vid_patch_spatial: [16, 16]
+        vid_patch_temporal: 4
+        apply_cls_token: true 
+        encoder_cfg: 'base_encoder'
+        decoder_cfg: 'base_decoder'
+        norm_pix_loss: true
+    fwd_kwargs:
+        mask_ratio: 0.85
+
+        
+        
