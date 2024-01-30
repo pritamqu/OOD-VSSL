@@ -6,7 +6,7 @@ Our codes are based on PyTorch. The additional dependencies can be found `requir
 
 ### Pretrained model weights
 
-The VSSL pretraining weights can be downloaded from this [link](https://drive.google.com/drive/folders/1Hk1mXjwiTKUxO_Cd4gnwUE5fxr5u3eMS?usp=sharing). More checkpoints will be released soon.
+The VSSL pretraining weights can be downloaded from this [link](https://drive.google.com/drive/folders/1Hk1mXjwiTKUxO_Cd4gnwUE5fxr5u3eMS?usp=sharing).
 
 | **Methods**                     | **Weights**     |
 |---------------------------------|--------------|
